@@ -14,14 +14,14 @@ note.insertAdjacentHTML('afterbegin',htmlData);
 
 function updateLocalStrorageData(){
     const textAreaData=document.querySelectorAll('textarea')
-    const notes=[];
+    const notes=[]; 
     textAreaData.forEach((element)=>{
         return notes.push(element.value);
     })
     localStorage.setItem('notes',JSON.stringify(notes));
 }
 
-
+ 
 const editButton=note.querySelector(".edit");
 const deleteButton=note.querySelector(".delete")
 const mainDiv=note.querySelector('.main')
@@ -41,6 +41,8 @@ editButton.addEventListener('click',()=>{
 
 textArea.value=text;
 mainDiv.innerHTML=text; 
+//getting the value that user enters in the node textarea and set the value on main div
+//the Event object contains the number of properties that describe the event that occurred
 textArea.addEventListener('input',(event)=>{
     const value=event.target.value;
     mainDiv.innerHTML=value; 
