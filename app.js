@@ -31,6 +31,8 @@ const textArea=note.querySelector('textarea');
 //delete the node
 deleteButton.addEventListener('click',()=>{
     note.remove();
+    updateLocalStrorageData();
+
 })
 
 // toggle using the edit button 
