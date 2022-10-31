@@ -28,31 +28,28 @@ const mainDiv=note.querySelector('.main')
 const textArea=note.querySelector('textarea');
 
 
+//delete the node
 deleteButton.addEventListener('click',()=>{
     note.remove();
 })
 
-// toggle using the Edit button
-textArea.value=text;
-mainDiv.innerHTML=text;
-
+// toggle using the edit button 
 editButton.addEventListener('click',()=>{
     mainDiv.classList.toggle('hidden');
     textArea.classList.toggle('hidden');
 })
+
+textArea.value=text;
+mainDiv.innerHTML=text; 
 textArea.addEventListener('input',(event)=>{
     const value=event.target.value;
     mainDiv.innerHTML=value; 
     updateLocalStrorageData();
 })
+
+//append a element as the last child of an element
 document.body.appendChild(note);
-}
-
-
-function displayFn(){
-addnewNote();
-}
-
+} 
 
 const notes=JSON.parse(localStorage.getItem('notes'));
 if(notes){
@@ -60,6 +57,10 @@ if(notes){
         addnewNote(note)
     })
 }
+
+function displayFn(){
+    addnewNote();
+ }
 
 addButton.addEventListener("click",displayFn);
 
